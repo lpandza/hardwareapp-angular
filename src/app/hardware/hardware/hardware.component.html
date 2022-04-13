@@ -1,0 +1,10 @@
+<h2>Hardware</h2>
+<div class="list-group">
+  <a *ngFor="let h of hardware"
+     (click)="onClick(h)"
+     href="#" class="list-group-item list-group-item-action">
+    {{h.name}}
+  </a>
+</div>
+
+<app-hardwaredetail [hardware]="selectedHardware"></app-hardwaredetail>
