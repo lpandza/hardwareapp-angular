@@ -1,4 +1,13 @@
 <div *ngIf="hardware">
   <h2>Detalji o {{hardware.name}}</h2>
   <div><span>Cijena: </span>{{hardware.price}} EUR </div>
+  <br>
+  <h5>Recenzije</h5>
+  <div *ngFor="let review of hardware.reviews" class="card">
+    <div class="card-body">
+      <p>{{review.title}}</p>
+      <p>{{review.text}}</p>
+      {{review.score}}/5
+    </div>
+  </div>
 </div>
