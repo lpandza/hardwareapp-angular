@@ -3,14 +3,14 @@
   <div *ngFor="let h of hardware"
      class="list-group-item list-group-item-action">
     <a (click)="onClick(h)">{{h.name}}</a>
-    <button (click)="delete(h)">X</button>
+    <button *ngIf="authService.isUserAdmin()" (click)="delete(h)">X</button>
   </div>
 
 </div>
 
 <br>
 
-<form>
+<form *ngIf="authService.isUserAdmin()">
   <div class="form-group">
     <label for="code">Sifra</label>
     <input type="text" class="form-control" id="code" #code>
@@ -40,7 +40,8 @@
   </div>
   <br>
 
+  <button (click)="onSubmit(code.value, name.value, type.value, quantity.value, price.value)"
+          class="btn btn-primary">Submit</button>
 </form>
-<button (click)="onSubmit(code.value, name.value, type.value, quantity.value, price.value)"
-        class="btn btn-primary">Submit</button>
+
 

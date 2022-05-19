@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HardwareService} from "../hardware.service";
 import {Hardware} from "../../model/hardware";
 import {Router} from "@angular/router";
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-hardware',
@@ -12,7 +13,8 @@ export class HardwareComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private hardwareService: HardwareService
+    private hardwareService: HardwareService,
+    public authService: AuthService
   ) { }
 
   hardware: Hardware[];
